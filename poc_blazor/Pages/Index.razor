@@ -1,0 +1,35 @@
+﻿@page "/"
+
+@inject IStringLocalizer<Resources> _localizer;
+
+@if (products == null)
+{
+    <p><span class="spinner"><em>Loading...</em></span></p>
+}
+else
+{
+    <MudContainer>
+        <main>
+            <input type="search" class="searchBalk mb-2" placeholder="@_localizer[nameof(Resources.SearchBar)]" @oninput="OnSearchBalkChanged"/>
+        <MudGrid>
+            @foreach(var product in filteredProducts)
+                {
+                    <MudItem xs="3">
+                        <MudCard>
+                            <MudCardMedia Image="@product.Image" Height="250" />
+                            <MudCardContent>
+                                <MudText Align="Align.Center" Typo="Typo.h5">@product.Name</MudText>
+                                <MudText Align="Align.Right">@product.Price.ToString("n2")</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Color="Color.Primary" Variant="Variant.Filled" Class="btn-primary">
+                                    <a class="btn-primary" href="product/@product.Id">@_localizer[nameof(Resources.CardButton)]</a>
+                                </MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+            </MudGrid> 
+        </main>
+    </MudContainer>
+}

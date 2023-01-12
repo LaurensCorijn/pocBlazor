@@ -1,0 +1,40 @@
+﻿@page "/login"
+
+@inject ISnackbar Snackbar
+@inject NavigationManager NavigationManager
+@inject IStringLocalizer<Resources> _localizer
+
+<MudContainer>
+    <main>
+        <MudContainer>
+            <EditForm Model="@model" OnValidSubmit="@LoginAsync">
+                <FluentValidationValidator />
+                    <MudGrid>
+                        <MudItem xs="4">
+
+                        </MudItem>
+                        <MudItem xs="4">
+                            <h2>@_localizer[nameof(Resources.LoginTitle)]</h2>
+                            <MudTextField
+                                @bind-Value="model.Email"
+                                For="@(() => model.Email)"
+                                Label="@_localizer[nameof(Resources.EmailLabel)]"
+                            />
+                            <MudTextField
+                                @bind-Value="model.Password"
+                                For="@(() => model.Password)"
+                                InputType="InputType.Password"
+                                Label="@_localizer[nameof(Resources.PasswordLabel)]"
+                            />
+                            <MudButton
+                                Variant="Variant.Filled"
+                                ButtonType="ButtonType.Submit"
+                            >
+                            @_localizer[nameof(Resources.LoginButton)]
+                        </MudButton>
+                        </MudItem>
+                    </MudGrid>
+            </EditForm>
+        </MudContainer>
+    </main>
+</MudContainer>

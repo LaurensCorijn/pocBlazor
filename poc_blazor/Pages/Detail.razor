@@ -1,0 +1,32 @@
+﻿@page "/product/{id:int}"
+
+@inject IStringLocalizer<Resources> _localizer;
+
+@if (product == null)
+{
+    <p><em>Loading ...</em></p>
+}
+else
+{
+    <MudContainer Fixed="true">
+        <main>
+            <MudContainer>
+                <MudGrid>
+                    <MudItem xs="12" sm="6">
+                        <MudCard>
+                            <MudCardMedia Image="@product.Image" Height="400"/>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudText Class="my-2" Typo="Typo.h3">@product.Name</MudText>
+                        <MudText Class="my-2">@product.Description</MudText>
+                        <MudText Class="my-2">@_localizer[nameof(Resources.DetailPrice)]: €@product.Price.ToString("n2")</MudText>
+                        <MudButton Color="Color.Success" Variant="Variant.Filled" Class="btn-primary">
+                                    @_localizer[nameof(Resources.DetailButton)]
+                                </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudContainer>
+        </main>
+    </MudContainer>
+}

@@ -1,0 +1,14 @@
+﻿@inject IStringLocalizer<Resources> _localizer;
+
+<div class=''>
+    <MudGrid Justify="Justify.SpaceBetween">
+        <MudItem md="7">
+            <MudLink Class="text-white" Href="">@_localizer[nameof(Resources.HomeNav)]</MudLink>                    
+            <MudLink Href="add">@_localizer[nameof(Resources.AddNav)]</MudLink>
+        </MudItem>
+        <MudItem md="5">
+            <AccessControl />
+            <SelectCulture />
+        </MudItem>
+    </MudGrid>
+</div>

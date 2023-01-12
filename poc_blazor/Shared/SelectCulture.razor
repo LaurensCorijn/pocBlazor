@@ -1,0 +1,36 @@
+﻿@using System.Globalization
+@using poc_blazor.Infrastructure
+@inject ILocalStorageService _localStorage
+@inject NavigationManager _navigationManager
+@inject IStringLocalizer<Resources> _localizer
+
+<MudSelect T="string" Value="CurrentCulture" ValueChanged="(string i) => OnCultureChanged(i)" Variant="Variant.Outlined" OffsetY="true" 
+    Margin="@(_margin==true?Margin.Dense:Margin.None)" Dense="@_dense">
+    @foreach (var culture in cultures)
+    {
+        <MudSelectItem T="string" Value="@culture.Item2">@culture.Item1</MudSelectItem>
+    }
+</MudSelect>
+
+@code {
+    private string CurrentCulture {  get;  set; }
+
+    private bool _margin = true;
+    private bool _dense = true;
+
+    private (string, string)[] cultures;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cultures = LocalizerSettings.SupportedCulturesWithNames;
+        CurrentCulture = CultureInfo.CurrentCulture.Name;
+
+        await base.OnInitializedAsync();
+    }
+
+    public void OnCultureChanged(string culture)
+    {
+        _localStorage.SetItemAsync<string>("culture", culture);
+        _navigationManager.NavigateTo(_navigationManager.Uri, forceLoad: true);
+    }
+}

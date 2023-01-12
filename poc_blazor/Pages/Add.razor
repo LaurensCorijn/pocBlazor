@@ -1,0 +1,50 @@
+﻿@page "/add"
+
+@inject ISnackbar Snackbar
+@inject ILocalStorageService _localStorage
+@inject NavigationManager NavigationManager
+@inject IStringLocalizer<Resources> _localizer
+
+<MudContainer>
+    <main>
+        <MudContainer>
+            <EditForm Model="@model" OnValidSubmit="@CreateProductAsync">
+                <FluentValidationValidator />
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <h2>@_localizer[nameof(Resources.AddProductTitle)]</h2>
+                            <MudTextField 
+                                @bind-Value="model.Name" 
+                                For="@(() => model.Name)"
+                                Label="@_localizer[nameof(Resources.AddNameLabel)]"
+                            />
+                            <MudTextField 
+                                @bind-Value="model.Image" 
+                                For="@(() => model.Image)"
+                                Label="@_localizer[nameof(Resources.AddImageLabel)]"
+                            />
+                            <MudNumericField 
+                                @bind-Value="model.Price"
+                                For="@(() => model.Price)"
+                                AdornmentText="€"
+                                Adornment="Adornment.Start"
+                                Variant="Variant.Text"
+                                Label="@_localizer[nameof(Resources.AddPriceLabel)]"
+                            />
+                            <MudTextField 
+                                @bind-Value="model.Description" 
+                                For="@(() => model.Description)"
+                                Label="@_localizer[nameof(Resources.AddDescriptionLabel)]"
+                            />
+                            <MudButton 
+                                Variant="Variant.Filled"
+                                ButtonType="ButtonType.Submit"
+                            >
+                                @_localizer[nameof(Resources.AddButton)]
+                            </MudButton>
+                        </MudItem>
+                    </MudGrid>
+            </EditForm>
+        </MudContainer>
+    </main>
+</MudContainer>

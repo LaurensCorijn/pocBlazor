@@ -1,0 +1,43 @@
+﻿@page "/register"
+
+@inject ISnackbar Snackbar
+@inject NavigationManager NavigationManager
+@inject IStringLocalizer<Resources> _localizer
+
+<MudContainer>
+    <main>
+        <MudContainer>
+            <EditForm Model="@model" OnValidSubmit="@RegisterAsync">
+                <FluentValidationValidator />
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <h2>@_localizer[nameof(Resources.RegisterTitle)]</h2>
+                            <MudTextField
+                                @bind-Value="model.Email"
+                                For="@(() => model.Email)"
+                                Label="@_localizer[nameof(Resources.EmailLabel)]"
+                            />
+                            <MudTextField
+                                @bind-Value="model.Password"
+                                For="@(() => model.Password)"
+                                InputType="InputType.Password"
+                                Label="@_localizer[nameof(Resources.PasswordLabel)]"
+                            />
+                            <MudTextField
+                                @bind-Value="model.PasswordConfirmation"
+                                For="@(() => model.PasswordConfirmation)"
+                                InputType="InputType.Password"
+                                Label="@_localizer[nameof(Resources.PasswordConfirmLabel)]"
+                            />
+                            <MudButton
+                                Variant="Variant.Filled"
+                                ButtonType="ButtonType.Submit"
+                            >
+                            @_localizer[nameof(Resources.RegisterButton)]
+                        </MudButton>
+                        </MudItem>
+                    </MudGrid>
+            </EditForm>
+        </MudContainer>
+    </main>
+</MudContainer>
