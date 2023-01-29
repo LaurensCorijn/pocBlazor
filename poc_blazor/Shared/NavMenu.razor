@@ -1,14 +1,20 @@
 ﻿@inject IStringLocalizer<Resources> _localizer;
 
-<div class=''>
+<div class='mx-3'>
     <MudGrid Justify="Justify.SpaceBetween">
-        <MudItem md="7">
-            <MudLink Class="text-white" Href="">@_localizer[nameof(Resources.HomeNav)]</MudLink>                    
-            <MudLink Href="add">@_localizer[nameof(Resources.AddNav)]</MudLink>
+        <MudItem md="6" Class="my-auto">
+            <MudLink Class="mx-3" Style="@($"color:{Colors.Shades.White} !important; font-weight: bolder; font-size: 20px;")" Href="">@_localizer[nameof(Resources.HomeNav)]</MudLink>                    
+            <MudLink Class="mx-3" Style="@($"color:{Colors.Shades.White} !important; font-weight: bolder; font-size: 20px;")" Href="add">@_localizer[nameof(Resources.AddNav)]</MudLink>
         </MudItem>
         <MudItem md="5">
-            <AccessControl />
-            <SelectCulture />
+            <MudGrid Justify="Justify.FlexEnd">
+                <MudItem md="6" Class="my-auto mx-3">
+                    <AccessControl />
+                </MudItem>
+                <MudItem md="4" Class="my-auto mx-3">
+                    <SelectCulture />
+                </MudItem>
+            </MudGrid>
         </MudItem>
     </MudGrid>
 </div>

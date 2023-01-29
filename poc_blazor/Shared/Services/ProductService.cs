@@ -1,5 +1,5 @@
 ﻿using poc_blazor.Infrastructure;
-using Domain.Classes;
+using poc_blazor.Shared.Classes;
 using System.Net.Http.Json;
 using poc_blazor.Shared.IServices;
 using poc_blazor.Shared.DTO;

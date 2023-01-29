@@ -1,4 +1,25 @@
-﻿<div>
-    <MudLink Href="login">Login</MudLink>
-    <MudLink Href="register">Register</MudLink>
-</div>
+﻿
+@inject ILocalStorageService _localStorage
+@inject IStringLocalizer<Resources> _localizer
+
+
+
+@if (_loggedIn)
+{
+    <MudGrid Justify="Justify.FlexEnd">
+        <MudItem md="4">
+            <MudLink Class="mx-3" OnClick="Logout" Style="@($"color:{Colors.Shades.White} !important; font-weight: bolder; font-size: 20px;")">@_localizer[nameof(Resources.LogoutNav)]</MudLink>
+        </MudItem>
+    </MudGrid>
+}
+else
+{
+    <MudGrid Justify="Justify.FlexEnd">
+        <MudItem md="4">
+            <MudLink Class="mx-3" Style="@($"color:{Colors.Shades.White} !important; font-weight: bolder; font-size: 20px;")" Href="login">@_localizer[nameof(Resources.LoginNav)]</MudLink>
+        </MudItem>
+        <MudItem md="4">
+            <MudLink Class="mx-3 pr-3" Style="@($"color:{Colors.Shades.White} !important; font-weight: bolder; font-size: 20px;")" Href="register">@_localizer[nameof(Resources.RegisterNav)]</MudLink>
+        </MudItem>
+    </MudGrid>
+}

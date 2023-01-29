@@ -10,8 +10,6 @@ namespace poc_blazor.Pages
         [Inject] public IUserService UserService { get; set; }
         [Inject] public NavigationManager Navigation { get; set; }
 
-        MudForm form;
-
         UserDTO.Register model = new();
 
         protected override async Task OnInitializedAsync()
@@ -26,12 +24,12 @@ namespace poc_blazor.Pages
             bool succes = await UserService.Register(model);
             if (succes)
             {
-                Snackbar.Add("Goed geregistreerd", Severity.Success);
-                Navigation.NavigateTo("");
+                Snackbar.Add("Succesfully registered", Severity.Success);
+                Navigation.NavigateTo("", forceLoad: true);
             }
             else
             {
-                Snackbar.Add("Couldn't login", Severity.Error);
+                Snackbar.Add("Couldn't register", Severity.Error);
             }
         }
     }

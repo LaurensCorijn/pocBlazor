@@ -1,4 +1,4 @@
-﻿using Domain.Classes;
+﻿using poc_blazor.Shared.Classes;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using poc_blazor.Shared.IServices;
@@ -10,8 +10,6 @@ namespace poc_blazor.Pages
     {
         [Inject] public IProductService ProductService { get; set; }
         [Inject] public NavigationManager Navigation { get; set; }
-
-        MudForm form;
 
         ProductDTO.Create model = new();
 
@@ -33,7 +31,7 @@ namespace poc_blazor.Pages
             bool succes = await ProductService.CreateProductAsync(model);
             if (succes)
             {
-                Snackbar.Add("Product toegevoegd", Severity.Success);
+                Snackbar.Add("Product added", Severity.Success);
                 Navigation.NavigateTo("");
             }
             else

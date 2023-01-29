@@ -3,7 +3,6 @@ using System.Net.Http.Json;
 using poc_blazor.Shared.DTO;
 using poc_blazor.Shared.IServices;
 using Blazored.LocalStorage;
-using Microsoft.AspNetCore.Components;
 
 namespace poc_blazor.Shared.Services
 {

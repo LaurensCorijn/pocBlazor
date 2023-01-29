@@ -180,9 +180,27 @@ namespace poc_blazor {
         /// <summary>
         ///   Looks up a localized string similar to Inloggen.
         /// </summary>
+        public static string LoginNav {
+            get {
+                return ResourceManager.GetString("LoginNav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inloggen.
+        /// </summary>
         public static string LoginTitle {
             get {
                 return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uitloggen.
+        /// </summary>
+        public static string LogoutNav {
+            get {
+                return ResourceManager.GetString("LogoutNav", resourceCulture);
             }
         }
         
@@ -210,6 +228,15 @@ namespace poc_blazor {
         public static string RegisterButton {
             get {
                 return ResourceManager.GetString("RegisterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registreer.
+        /// </summary>
+        public static string RegisterNav {
+            get {
+                return ResourceManager.GetString("RegisterNav", resourceCulture);
             }
         }
         

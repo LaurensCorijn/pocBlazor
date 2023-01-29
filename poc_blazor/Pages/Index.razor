@@ -18,8 +18,14 @@ else
                         <MudCard>
                             <MudCardMedia Image="@product.Image" Height="250" />
                             <MudCardContent>
-                                <MudText Align="Align.Center" Typo="Typo.h5">@product.Name</MudText>
-                                <MudText Align="Align.Right">@product.Price.ToString("n2")</MudText>
+                                <MudGrid Justify="Justify.SpaceBetween">
+                                    <MudItem xs="6">
+                                        <MudText Align="Align.Left" Typo="Typo.h5">@product.Name</MudText>
+                                    </MudItem>
+                                    <MudItem xs="6">
+                                        <MudText Align="Align.Right">€@product.Price.ToString("n2")</MudText>
+                                    </MudItem>
+                                </MudGrid>    
                             </MudCardContent>
                             <MudCardActions>
                                 <MudButton Color="Color.Primary" Variant="Variant.Filled" Class="btn-primary">

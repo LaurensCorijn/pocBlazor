@@ -9,8 +9,8 @@
         <MudContainer>
             <EditForm Model="@model" OnValidSubmit="@RegisterAsync">
                 <FluentValidationValidator />
-                    <MudGrid>
-                        <MudItem xs="6">
+                    <MudGrid Justify="Justify.Center">
+                        <MudItem xs="4">
                             <h2>@_localizer[nameof(Resources.RegisterTitle)]</h2>
                             <MudTextField
                                 @bind-Value="model.Email"
@@ -32,6 +32,8 @@
                             <MudButton
                                 Variant="Variant.Filled"
                                 ButtonType="ButtonType.Submit"
+                                Class="my-3"
+                                Color="Color.Primary"
                             >
                             @_localizer[nameof(Resources.RegisterButton)]
                         </MudButton>

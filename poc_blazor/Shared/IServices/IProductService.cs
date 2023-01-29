@@ -1,4 +1,4 @@
-﻿using Domain.Classes;
+﻿using poc_blazor.Shared.Classes;
 using poc_blazor.Shared.DTO;
 
 namespace poc_blazor.Shared.IServices

@@ -1,4 +1,4 @@
-﻿using Domain.Classes;
+﻿using poc_blazor.Shared.Classes;
 using Microsoft.AspNetCore.Components;
 using poc_blazor.Shared.IServices;
 

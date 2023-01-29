@@ -10,8 +10,6 @@ namespace poc_blazor.Pages
         [Inject] public IUserService UserService { get; set; }
         [Inject] public NavigationManager Navigation { get; set; }
 
-        MudForm form;
-
         UserDTO.Login model = new();
 
         protected override async Task OnInitializedAsync()
@@ -25,8 +23,8 @@ namespace poc_blazor.Pages
             bool succes = await UserService.LogIn(model);
             if (succes)
             {
-                Snackbar.Add("Goed ingelogd", Severity.Success);
-                Navigation.NavigateTo("");
+                Snackbar.Add("Successfully logged in", Severity.Success);
+                Navigation.NavigateTo("", forceLoad: true);
             }
             else
             {
